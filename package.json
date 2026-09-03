@@ -1,0 +1,49 @@
+{
+  "name": "komodo-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "description": "MCP 2026 adapter for the native Komodo API",
+  "license": "GPL-3.0-only",
+  "homepage": "https://github.com/AxENSRennes/komodo-mcp#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AxENSRennes/komodo-mcp.git"
+  },
+  "bugs": "https://github.com/AxENSRennes/komodo-mcp/issues",
+  "keywords": [
+    "komodo",
+    "mcp",
+    "model-context-protocol",
+    "devops",
+    "docker"
+  ],
+  "type": "module",
+  "bin": {
+    "komodo-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "generate": "node scripts/generate-operation-catalog.mjs",
+    "build": "npm run generate && tsc -p tsconfig.json && chmod +x dist/index.js",
+    "dev": "tsx src/index.ts",
+    "start": "node dist/index.js",
+    "test": "vitest run",
+    "typecheck": "npm run generate && tsc -p tsconfig.json --noEmit",
+    "check": "npm run typecheck && npm test && npm audit --audit-level=high"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/node": "^2.0.0",
+    "@modelcontextprotocol/server": "^2.0.0",
+    "komodo_client": "^2.3.2",
+    "zod": "^4.1.0"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/client": "^2.0.0",
+    "@types/node": "^25.0.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.0",
+    "vitest": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,16 @@
+#!/bin/sh
+set -eu
+
+SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+PROJECT_DIR=$(dirname -- "$SCRIPT_DIR")
+CONFIG_ROOT=${XDG_CONFIG_HOME:-"$HOME/.config"}
+ENV_FILE=${KOMODO_MCP_ENV_FILE:-"$CONFIG_ROOT/komodo-mcp/credentials.env"}
+
+if [ -f "$ENV_FILE" ]; then
+  set -a
+  # shellcheck disable=SC1090
+  . "$ENV_FILE"
+  set +a
+fi
+
+exec node "$PROJECT_DIR/dist/index.js"

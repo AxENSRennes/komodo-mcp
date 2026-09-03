@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.env
+credentials.env
+deploy/compose.env
+coverage/
+*.log
