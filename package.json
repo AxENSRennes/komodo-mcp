@@ -28,7 +28,7 @@
     "start": "node dist/index.js",
     "test": "vitest run",
     "typecheck": "npm run generate && tsc -p tsconfig.json --noEmit",
-    "check": "npm run typecheck && npm test && npm audit --audit-level=high"
+    "check": "npm run build && npm test && npm audit --audit-level=high"
   },
   "dependencies": {
     "@modelcontextprotocol/node": "^2.0.0",

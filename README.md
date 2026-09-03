@@ -153,7 +153,6 @@ km ssh my-server
 ```bash
 npm ci
 npm run check
-npm run build
 ```
 
 Run the MCP Inspector against the compiled server:
